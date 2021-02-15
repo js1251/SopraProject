@@ -12,12 +12,14 @@ namespace SpaceTrouble.GameState {
     internal abstract class GameStateOverlay {
         internal readonly string mOverlayName;
         internal bool Active { get; }
+        //private readonly int mPriority;
 
         protected GameStateOverlay(string overlayName/*, int priority*/, bool active=true) {
             mOverlayName = overlayName;
             Active = active;
+            //mPriority = priority;
         }
-        
+
         internal abstract void LoadContent();
 
         public abstract void Update(GameTime gameTime, Dictionary<ActionType, InputAction> inputs);

@@ -71,6 +71,10 @@ namespace SpaceTrouble.util.Tools {
                 return currentHeading;
             }
 
+            //if (addHeading.Length() > 1f && new Random().Next(0,2) == 0) {
+            //    return addHeading;
+            //}
+
             var newHeading = currentHeading + addHeading;
 
             if (newHeading.Length() < 0.01f) {

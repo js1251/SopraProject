@@ -67,6 +67,18 @@ namespace SpaceTrouble.GameState {
             }
         }
 
+        /// <summary>
+        /// Remove a list of Overlays from a GameState. <br/>
+        /// </summary>
+        public void RemoveOverlaysFromState(IEnumerable<string> overlayNames, string stateName) {
+            if (mGameStates.ContainsKey(stateName)) {
+                var overlayList = mMapStateToOverlays[stateName];
+                foreach (var name in mOverlays.Keys.Intersect(overlayNames)) {
+                    overlayList.Remove(name);
+                }
+            }
+        }
+
         internal void ActivateGameState(string newGameStateName, bool replaceActiveState = false, string message = "") {
             if (mGameStates.ContainsKey(newGameStateName)) {
                 if (replaceActiveState) {
@@ -87,6 +99,19 @@ namespace SpaceTrouble.GameState {
                     mStateMessages.Add(message);
                 }
             }
+        }
+
+        internal void SendStateMessage(string message) {
+            mStateMessages.Add(message);
+        }
+
+        internal bool ClearStateMessage(string message) {
+            if (message == "") {
+                mStateMessages.Clear();
+                return true;
+            }
+
+            return mStateMessages.Remove(message);
         }
 
         /// <summary>

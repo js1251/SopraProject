@@ -54,6 +54,19 @@ namespace SpaceTrouble.util.Tools {
         }
 
         /// <summary>
+        /// Calculates screen-coordinates of given world-coordinates.
+        /// </summary>
+        /// <param name="worldCords">World-coordinates.</param>
+        /// <returns>Screen-coordinates of given world-coordinates.</returns>
+        public static Vector2 WorldToScreen(Vector2 worldCords) {
+            var cameraPosition = SpaceTrouble.Camera.CameraPos;
+            var cameraOffset = SpaceTrouble.Camera.CameraOffset;
+            var cameraZoom = SpaceTrouble.Camera.CameraZoom;
+
+            return (worldCords - cameraPosition) * cameraZoom + cameraOffset;
+        }
+
+        /// <summary>
         /// Calculates the world-cell-coordinates of given screen-coordinates.
         /// </summary>
         /// <param name="worldCords">Screen-coordinates.</param>

@@ -10,8 +10,8 @@ namespace SpaceTrouble.GameObjects.Tiles.Interfaces {
         public ResourceVector PromisedResources { get; set; }
         public Vector2 WorldPosition { get; }
 
-        public /*ResourceVector*/ void AddResource(ResourceVector resource) {
-            /*return*/ resource.TransferResources(this);
+        public ResourceVector AddResource(ResourceVector resource) {
+            return resource.TransferResources(this);
         }
 
         public bool HasResources(ResourceVector request) {
@@ -34,6 +34,10 @@ namespace SpaceTrouble.GameObjects.Tiles.Interfaces {
             }
 
             return givenResources;
+        }
+
+        public bool ContainerIsFull() {
+            return ResourceCapacity.AllLessOrEqualThan(Resources);
         }
 
         public bool ContainerIsEmpty() {

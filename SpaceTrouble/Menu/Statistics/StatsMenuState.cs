@@ -32,6 +32,7 @@ namespace SpaceTrouble.Menu.Statistics {
         // reads all values from the statsManager
         private void UpdateValues() {
             StatisticPanel.UpdateValues();
+            //AchievementsPanel.UpdateValues();
         }
 
         // create the basic layout of the menu
