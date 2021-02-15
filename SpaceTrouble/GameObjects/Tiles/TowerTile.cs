@@ -95,6 +95,11 @@ namespace SpaceTrouble.GameObjects.Tiles {
 
         internal override void Update(GameTime gameTime) {
             base.Update(gameTime);
+
+            if (CurrentTarget != null && (CurrentTarget.HitPoints <= 0 || Vector2.Distance(WorldPosition, CurrentTarget.WorldPosition) >= AttackRadius)) {
+                CurrentTarget = null;
+            }
+
             ((IAnimating) this).Update(gameTime);
 
             if (BuildingFinished) {
@@ -102,9 +107,6 @@ namespace SpaceTrouble.GameObjects.Tiles {
                 HandleEffects();
                 HandleShooting(gameTime);
             }
-
-            // since we don't know if the target was destroyed set it to null. (it will be set to a new target from the collision-data-structure)
-            CurrentTarget = null;
         }
 
         private void HandleTowerState()
@@ -333,10 +335,9 @@ namespace SpaceTrouble.GameObjects.Tiles {
             ((ICanHavePriority)this).Draw(spriteBatch);
         }
 
-        public void SetTarget(Creature enemy) {
-            if (CurrentTarget == null || enemy.HitPoints < CurrentTarget.HitPoints) {
-                CurrentTarget = enemy;
-            }
+        public bool SetTarget(Creature enemy) {
+            CurrentTarget ??= enemy;
+            return CurrentTarget != null;
         }
     }
 }

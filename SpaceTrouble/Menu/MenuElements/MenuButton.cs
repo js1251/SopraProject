@@ -51,7 +51,10 @@ namespace SpaceTrouble.Menu.MenuElements {
 
         internal override void Draw(SpriteBatch spriteBatch, float alpha) {
             var buttonColor = mMouseOverButton ? mHoverColor : mButtonColor;
-            spriteBatch.Draw(mTexture, mBounds, buttonColor * alpha);
+            if (mTexture != null) {
+                spriteBatch.Draw(mTexture, mBounds, buttonColor * alpha);
+            }
+
             if (mFont != null) {
                 base.Draw(spriteBatch, alpha);
             }

@@ -48,6 +48,7 @@ namespace SpaceTrouble {
             StateManager.AddGameState(new WorldGameState("WorldGame"));
             StateManager.AddGameState(new TutorialMenuState("Tutorials"));
             StateManager.AddGameState(new GraphicsMenuState("GraphicsMenu", currentScreenResolution));
+            StateManager.AddGameState(new ChangeLogMenu("ChangeLogMenu"));
 
             // credit overlay over-top all menus
             StateManager.AddOverlay(new CreditsOverlay("credits"));

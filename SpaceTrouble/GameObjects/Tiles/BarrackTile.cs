@@ -21,6 +21,7 @@ namespace SpaceTrouble.GameObjects.Tiles {
         }
         
         protected override Creature SpawnCreature(GameObjectEnum type) {
+
             SpaceTrouble.StatsManager.AddValue(Statistic.MinionsSpawned, 1);
             var spawnedCreature = (Minion) base.SpawnCreature(type);
             spawnedCreature.AiImplementation = WorldGameState.TaskManager.CreateNewAi(DefaultAi, spawnedCreature);

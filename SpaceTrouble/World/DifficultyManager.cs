@@ -42,7 +42,6 @@ namespace SpaceTrouble.World {
         internal DifficultyManager() {
             DifficultyValues = new Dictionary<DifficultyObject, Dictionary<DifficultyAttribute, Dictionary<DifficultyEnum, dynamic>>>();
 
-
             // Minion
             DifficultyValues[DifficultyObject.Minion] =
                 new Dictionary<DifficultyAttribute, Dictionary<DifficultyEnum, dynamic>> {
@@ -93,7 +92,7 @@ namespace SpaceTrouble.World {
                     },
                     // WaitTime for first Wave
                     [DifficultyAttribute.FirstWaveWaitLength] = new Dictionary<DifficultyEnum, dynamic> {
-                        [DifficultyEnum.Easy] = 600f,
+                        [DifficultyEnum.Easy] = 420f,
                         [DifficultyEnum.Normal] = 300f,
                         [DifficultyEnum.Hard] = 240f,
                         [DifficultyEnum.Legendary] = 180f
@@ -146,12 +145,11 @@ namespace SpaceTrouble.World {
             DifficultyValues[DifficultyObject.Miscellaneous] =
                 new Dictionary<DifficultyAttribute, Dictionary<DifficultyEnum, dynamic>> {
                     // Starting Resources
-                    // TODO: StockPile wird im Objectmanager als Object zum Clonen angelegt bevor der DifficultyManager die Schwierigkeit weiß
                     [DifficultyAttribute.StartingResources] = new Dictionary<DifficultyEnum, dynamic> {
                         [DifficultyEnum.Easy] = 30,
-                        [DifficultyEnum.Normal] = 30,
-                        [DifficultyEnum.Hard] = 30,
-                        [DifficultyEnum.Legendary] = 30
+                        [DifficultyEnum.Normal] = 25,
+                        [DifficultyEnum.Hard] = 20,
+                        [DifficultyEnum.Legendary] = 10
                     },
                     // Maximal amount of Minions per Barack
                     [DifficultyAttribute.MaxMinionPerBarrack] = new Dictionary<DifficultyEnum, dynamic> {

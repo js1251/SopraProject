@@ -14,6 +14,7 @@ namespace SpaceTrouble.Menu {
     internal sealed class MainMenuState : GameState.GameState {
         private Panel Panel { get; set; }
         private Panel LogoPanel { get; set; }
+        private Panel VersionPanel { get; set; }
         private MenuButton mContinueButton;
         private MenuButton mNewGameButton;
         private MenuButton mTutorialsButton;
@@ -21,6 +22,7 @@ namespace SpaceTrouble.Menu {
         private MenuButton mStatsButton;
         private MenuButton mTechDemoButton;
         private MenuButton mQuitButton;
+        private MenuButton mChangeLogButton;
 
 
         internal MainMenuState(string stateName) : base(stateName) {
@@ -59,6 +61,9 @@ namespace SpaceTrouble.Menu {
 
             } else if (mTutorialsButton.GetPushState(true)) {
                 stateManager.ActivateGameState("Tutorials");
+
+            } else if (mChangeLogButton.GetPushState(true)) {
+                stateManager.ActivateGameState("ChangeLogMenu");
             }
 
             base.CheckForStateChanges(stateManager, inputs);
@@ -76,7 +81,11 @@ namespace SpaceTrouble.Menu {
             mStatsButton = new MenuButton(buttonTexture, font, "Statistics");
             mTechDemoButton = new MenuButton(buttonTexture, font, "Techdemo");
             mQuitButton = new MenuButton(buttonTexture, font, "Quit");
+            mChangeLogButton = new MenuButton(null, font, "changelog", Color.DeepSkyBlue, 10f);
 
+            VersionPanel = new Panel(new Vector4(0,0.01f, 0.08f, 0.02f), new Vector2(0.1f, 0), new MenuElement[,] {
+                {new Label(Assets.Fonts.ButtonFont, Color.Lavender, "Version " + Global.Version, 10f), mChangeLogButton}
+            });
 
             var buttonPanel = new Panel(new Vector4(0.5f, 0.6f, 0.7f, 0.8f), new Vector2(0.05f, 0.025f), new MenuElement[,] {
                  {mContinueButton},
@@ -107,10 +116,12 @@ namespace SpaceTrouble.Menu {
             LogoPanel.Rotation = MathExtension.Oscillation((float)gameTime.TotalGameTime.TotalSeconds, 3f, -0.1f, 0.1f);
 
             Panel.Update(inputs);
+            VersionPanel.Update(inputs);
         }
 
         public override void Draw(SpriteBatch spriteBatch) {
             spriteBatch.Begin();
+            VersionPanel.Draw(spriteBatch);
             Panel.Draw(spriteBatch);
             spriteBatch.End();
         }

@@ -119,7 +119,7 @@ namespace SpaceTrouble.World {
             BuildingMenu = new BuildingMenu();
             TaskManager = new TaskManager();
             PriorityManager = new PriorityManager();
-            DifficultyManager = new DifficultyManager();
+            DifficultyManager.TowerCount = 0;
 
             ObjectManager.RemoveAll();
             Highlighting.Reset();

@@ -2,6 +2,7 @@
 
 namespace SpaceTrouble.util.Tools {
     internal static class Global {
+        public const string Version = "1.1";
         public static int WindowWidth { get; set; }
         public static int WindowHeight { get; set; }
 

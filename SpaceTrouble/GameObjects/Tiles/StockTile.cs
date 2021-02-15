@@ -15,9 +15,8 @@ namespace SpaceTrouble.GameObjects.Tiles {
 
         public StockTile() {
             RequiredResources = new ResourceVector(1, 1, 0);
-            var startResource = WorldGameState.DifficultyManager.GetAttribute(DifficultyObject.Miscellaneous,
-                DifficultyAttribute.StartingResources);
-            Resources = new ResourceVector(startResource, startResource, startResource);
+            var startResource = (int) WorldGameState.DifficultyManager.GetAttribute(DifficultyObject.Miscellaneous, DifficultyAttribute.StartingResources);
+            Resources = new ResourceVector(1,1,1) * startResource;
             ResourceCapacity = Resources;
         }
 

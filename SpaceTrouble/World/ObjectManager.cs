@@ -117,12 +117,11 @@ namespace SpaceTrouble.World {
         }
 
         public GameObject CopyObject(GameObjectEnum type) {
-            // Kai: this creates a new object, for performance reasons we might want to improve this
-            var objType = Type.GetType(mObjectsDictionary[type].Item1.ToString() ?? throw new Exception("Object Creation Exception"));
-            var newObject = (GameObject) Activator.CreateInstance(objType ?? throw new Exception("Object Creation Exception"));
+            var newObject = (GameObject) Activator.CreateInstance(mObjectsDictionary[type].Item1.GetType());
             if (newObject != null) {
                 newObject.Texture = mObjectsDictionary[type].Item2;
             }
+
             return newObject;
         }
 

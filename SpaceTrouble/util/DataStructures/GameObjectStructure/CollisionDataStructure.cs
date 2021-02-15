@@ -80,6 +80,10 @@ namespace SpaceTrouble.util.DataStructures.GameObjectStructure {
             return (cellsTowerIsIn, listsTowerIsIn);
         }
 
+        public List<Point> GetTowerCellPositions(TowerTile tower) {
+            return GetTowerCells(tower).Item1;
+        }
+
         private bool IsOutOfTowerReachArray(int x, int y) {
             return x < 0 || x >= TowerReach.GetLength(0) || y < 0 || y >= TowerReach.GetLength(1);
         }
@@ -109,9 +113,15 @@ namespace SpaceTrouble.util.DataStructures.GameObjectStructure {
                     }
                 }
 
-                var towerCount = Math.Clamp(towerReachEntry.Count, 0, MaxTowersShootingAtSameTarget);
-                for (var i = 0; i < towerCount; i++) {
-                    towerReachEntry[i].SetTarget(creature);
+                var towerCount = 0;
+                foreach (var tower in towerReachEntry) {
+                    if (tower.SetTarget(creature)) {
+                        towerCount++;
+                    }
+
+                    if (towerCount > MaxTowersShootingAtSameTarget) {
+                        break;
+                    }
                 }
             }
         }
@@ -204,7 +214,6 @@ namespace SpaceTrouble.util.DataStructures.GameObjectStructure {
                 if (currentBoundingBoxObject is IBoundingBox currentObject) {
                     // get all objects that intersect with the current object
                     var allIntersectingWithCurrent = GetNearCollidingObjects(currentObject.BoundingBox);
-
 
                     foreach (var intersectingWithCurrent in allIntersectingWithCurrent) {
                         // only do calculations if the object intersecting with the current object is a collidable
