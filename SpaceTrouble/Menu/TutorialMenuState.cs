@@ -114,7 +114,7 @@ namespace SpaceTrouble.Menu {
             text += "Minion survive.\n\nIn the following pages you will get to know the game mechanics and controls. If you don't ";
             text += "fully understand a page, don't worry about it! Just go ahead and read the next.\nYou can acces the tutorial ";
             text += "screen any time during the game.";
-            Pages.Add(new TutorialEntry("Welcome to Spacetrouble!", Assets.Textures.TutorialScreens.GameLogo, text));
+            Pages.Add(new TutorialEntry("Welcome to Spacetrouble!", Assets.Textures.InterfaceTextures.GameTitle, text));
 
             text = "Let's take a quick look at your interface. Here you see a quick overview of what it's all about\n\n";
             text += "1. Your current amount of resources and how much will be reduced\n";
