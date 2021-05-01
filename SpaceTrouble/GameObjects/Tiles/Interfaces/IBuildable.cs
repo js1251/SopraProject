@@ -12,12 +12,14 @@ namespace SpaceTrouble.GameObjects.Tiles.Interfaces {
         public Color Color { set; }
         public Vector2 WorldPosition { get; }
 
+        /*
         public bool NeedsResource(ResourceVector resource) {
             return (OnTheWayResources + resource).AllLessOrEqualThan(RequiredResources);
         }
+        */
 
-        public ResourceVector AddResource(ResourceVector resource) {
-            return AddResourceHelper(resource);
+        public /*ResourceVector*/ void AddResource(ResourceVector resource) {
+            /*return*/ AddResourceHelper(resource);
         }
 
         public ResourceVector NeededResources() {
@@ -28,7 +30,7 @@ namespace SpaceTrouble.GameObjects.Tiles.Interfaces {
         /// Helper method for a workaround that substitutes base.AddResource() not being possible for interfaces. Always override AddResource() not this;
         /// Then call this method from the override as the "base" method
         /// </summary>
-        public ResourceVector AddResourceHelper(ResourceVector resource) {
+        public /*ResourceVector*/ void AddResourceHelper(ResourceVector resource) {
             ResourceVector leftoverResources;
             (RequiredResources, leftoverResources) = RequiredResources.SubtractResources(resource);
 
@@ -42,7 +44,7 @@ namespace SpaceTrouble.GameObjects.Tiles.Interfaces {
                 OnTheWayResources = ResourceVector.Empty;
             }
 
-            return leftoverResources;
+            //return leftoverResources;
         }
 
         public virtual void OnBuildingFinished() {

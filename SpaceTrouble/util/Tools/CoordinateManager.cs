@@ -53,6 +53,7 @@ namespace SpaceTrouble.util.Tools {
             return WorldToTile(ScreenToWorld(screenCords));
         }
 
+        /*
         /// <summary>
         /// Calculates screen-coordinates of given world-coordinates.
         /// </summary>
@@ -65,6 +66,7 @@ namespace SpaceTrouble.util.Tools {
 
             return (worldCords - cameraPosition) * cameraZoom + cameraOffset;
         }
+        */
 
         /// <summary>
         /// Calculates the world-cell-coordinates of given screen-coordinates.

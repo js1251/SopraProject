@@ -236,7 +236,7 @@ namespace SpaceTrouble.Menu {
             text += "have something to do in their task.\n";
             text += "When a Minions spawns, it will be auto-assigned to the task on the bottom (6.). You can ";
             text += "change that task by left-clicking on the '<>' button beside it (7.)";
-            Pages.Add(new TutorialEntry("Minions", Assets.Textures.TutorialScreens.MinonControle, text));
+            Pages.Add(new TutorialEntry("Minions", Assets.Textures.TutorialScreens.MinionControl, text));
 
         }
     }

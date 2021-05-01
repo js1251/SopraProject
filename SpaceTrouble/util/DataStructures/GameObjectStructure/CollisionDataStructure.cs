@@ -80,9 +80,11 @@ namespace SpaceTrouble.util.DataStructures.GameObjectStructure {
             return (cellsTowerIsIn, listsTowerIsIn);
         }
 
+        /*
         public List<Point> GetTowerCellPositions(TowerTile tower) {
             return GetTowerCells(tower).Item1;
         }
+        */
 
         private bool IsOutOfTowerReachArray(int x, int y) {
             return x < 0 || x >= TowerReach.GetLength(0) || y < 0 || y >= TowerReach.GetLength(1);

@@ -185,7 +185,7 @@ namespace SpaceTrouble.util.Tools.Assets {
     }
 
     internal sealed class TutorialScreens {
-        internal Texture2D GameLogo { get; private set; }
+        //internal Texture2D GameLogo { get; private set; }
         internal Texture2D ResourceDisplay { get; private set; }
         internal Texture2D ConstructionExample { get; private set; }
         internal Texture2D InterfaceOverview { get; private set; }
@@ -194,11 +194,11 @@ namespace SpaceTrouble.util.Tools.Assets {
         internal Texture2D ExampleKitchen { get; private set; }
         internal Texture2D ExampleTower { get; private set; }
         internal Texture2D PortalLaboratory { get; private set; }
-        internal Texture2D MinonControle { get; private set; }
+        internal Texture2D MinionControl { get; private set; }
         internal Texture2D ControlsIcon { get; private set; }
 
         internal void LoadContent(ContentManager content) {
-            GameLogo = content.Load < Texture2D >("sprites/tutorial/GameLogo");
+            //GameLogo = content.Load < Texture2D >("sprites/tutorial/GameLogo");
             ResourceDisplay = content.Load<Texture2D>("sprites/tutorial/resourceDisplay");
             ConstructionExample = content.Load<Texture2D>("sprites/tutorial/constructionExample");
             InterfaceOverview = content.Load<Texture2D>("sprites/tutorial/interfaceOverview");
@@ -207,7 +207,7 @@ namespace SpaceTrouble.util.Tools.Assets {
             ExampleKitchen = content.Load<Texture2D>("sprites/tutorial/kitchenExample");
             ExampleTower = content.Load<Texture2D>("sprites/tutorial/towerExample");
             PortalLaboratory = content.Load<Texture2D>("sprites/tutorial/portalLaboratory");
-            MinonControle = content.Load<Texture2D>("sprites/tutorial/minionControle");
+            MinionControl = content.Load<Texture2D>("sprites/tutorial/minionControle");
             ControlsIcon = content.Load<Texture2D>("sprites/tutorial/controlsIcon");
 
         }

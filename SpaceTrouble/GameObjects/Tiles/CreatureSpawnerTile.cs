@@ -20,7 +20,7 @@ namespace SpaceTrouble.GameObjects.Tiles {
         [JsonProperty] public ResourceVector RequiredResourcesForSpawn { get; set; }
         [JsonProperty] public HashSet<Creature> CreaturesSpawned { get; set; } = new HashSet<Creature>();
 
-        public ResourceVector AddResource(ResourceVector resource) {
+        public /*ResourceVector*/ void AddResource(ResourceVector resource) {
 
             // note: for portal and laboratory Tiles this is always true.
             // spawning is controlled by setting the MaxSpawnNumber.
@@ -30,7 +30,7 @@ namespace SpaceTrouble.GameObjects.Tiles {
                 }
             }
 
-            return ((IBuildable) this).AddResourceHelper(resource);
+            /*return*/ ((IBuildable) this).AddResourceHelper(resource);
         }
 
         // "overrides" IBuildable OnBuildingFinished()

@@ -143,18 +143,18 @@ namespace SpaceTrouble.World {
             return (Tile) newTile;
         }
 
-        internal Tile CreateGhostTile(Vector2 tilePos, GameObjectEnum type, Color color) {
+        internal /*Tile*/ void CreateGhostTile(Vector2 tilePos, GameObjectEnum type, Color color) {
             var ghost = CopyObject(type);
             ghost.WorldPosition = CoordinateManager.TileToWorld(tilePos);
             ghost.Color = color;
 
             if (!(ghost is Tile tile)) {
-                return null;
+                return; //null;
             }
 
             DataStructure.DrawData.InsertGhostTile(tile);
 
-            return tile;
+            //return tile;
         }
 
         /// <summary>
